@@ -1,0 +1,54 @@
+from flask import Flask, request, jsonify,send_file
+import os
+import datetime
+from urllib.parse import quote
+
+app = Flask(__name__)
+
+# 获取文件夹下的所有文件信息
+def get_file_info(directory):
+    files = []
+    for filename in os.listdir(directory):
+        path = os.path.join(directory, filename)
+        if os.path.isfile(path):
+            info = {
+                "filename": filename,
+                # "creator": os.stat(path).st_uid,           #linux的方法
+                # "creator": int(os.path.getctime(path)),  # get creation time on Windows
+                "creator": datetime.datetime.fromtimestamp(os.path.getctime(path)).strftime('%Y-%m-%d %H:%M:%S'),
+
+                # "size": os.path.getsize(path),
+                "size": str(round(os.path.getsize(path) / 1024, 2)) + "KB",
+                "path": os.path.abspath(path)
+            }
+            files.append(info)
+    return files
+
+# 设置路由，返回文件信息列表
+@app.route("/")
+def index():
+    # directory = "/"
+    directory = r'C:\Users\张同学\Desktop\alastic_webserver\paperFile'
+
+    files = get_file_info(directory)
+    return jsonify(files)
+
+# 设置路由，返回文件
+@app.route("/<path:filename>")
+def get_file(filename):
+    directory = r'C:\Users\张同学\Desktop\alastic_webserver\paperFile'
+
+    filepath = os.path.join(directory, filename)
+    try:
+
+        return send_file(filepath)
+        # 处理中文文件名编码问题
+        # filename_encoded = quote(filename)
+        # response = send_file(filepath)
+        # response.headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{filename_encoded}"
+        # return response
+    except:
+        return jsonify({"message": f"File not found: {filename}"})
+
+if __name__ == "__main__":
+    app.run(debug=True, port=8000)

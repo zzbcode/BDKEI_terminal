@@ -1,0 +1,75 @@
+QToolTip {
+    background-color: #333;
+    border: 1px solid white;
+    padding: 4px;
+    color: white;
+    font-size: 14px;
+}
+
+/* 灰色系统栏 */
+QMenuBar {
+    background-color: #999999;
+    color: white;
+}
+
+/* 去除窗口标题栏默认边框 */
+QMainWindow::title {
+    background-color: #999999;
+    color: white;
+    border: none;
+}
+
+/* 标题栏按钮 */
+QToolButton {
+    background-color: #999999;
+    color: white;
+    border: none;
+}
+
+/* 鼠标悬停标题栏按钮 */
+QToolButton:hover {
+    background-color: #bbbbbb;
+    color: white;
+}
+
+/* 关闭按钮 */
+QToolButton#qt_close_button {
+    margin-right: 6px;
+}
+
+/* 最大化按钮 */
+QToolButton#qt_maximize_button {
+    margin-right: 6px;
+}
+
+/* 最小化按钮 */
+QToolButton#qt_minimize_button {
+    margin-right: 6px;
+}
+
+/* 修改按钮样式 */
+QPushButton {
+    border: 2px solid #333;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    min-width: 160px; /* 设置最小宽度为 */
+    font-family:SimSun ; /* 设置字体为宋体 */
+}
+
+/* 按钮鼠标悬停样式 */
+QPushButton:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* 按钮按下样式 */
+QPushButton:pressed {
+    background-color: #555;
+    color: #fff;
+    border-style: inset;
+}
+

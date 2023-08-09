@@ -1,0 +1,74 @@
+QToolTip {
+    background-color: #0b38c0;
+    border: 1px solid white;
+    padding: 4px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Blue System Bar */
+QMenuBar {
+    background-color: #0b38c0;
+    color: white;
+}
+
+/* Remove default border from window title bar */
+QMainWindow::title {
+    background-color: #0b38c0;
+    color: white;
+    border: none;
+}
+
+/* Title bar buttons */
+QToolButton {
+    background-color: #0b38c0;
+    color: white;
+    border: none;
+}
+
+/* Hover effect on title bar buttons */
+QToolButton:hover {
+    background-color: #bbbbbb;
+    color: white;
+}
+
+/* Close button */
+QToolButton#qt_close_button {
+    margin-right: 6px;
+}
+
+/* Maximize button */
+QToolButton#qt_maximize_button {
+    margin-right: 6px;
+}
+
+/* Minimize button */
+QToolButton#qt_minimize_button {
+    margin-right: 6px;
+}
+
+/* Modify button style */
+QPushButton {
+    border: 2px solid #0b38c0;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0bafe8;
+    color: #0b38c0;
+    padding: 10px 20px;
+    min-width: 160px; /* Set minimum width */
+    font-family: SimSun; /* Set font to SimSun */
+}
+
+/* Hover effect on buttons */
+QPushButton:hover {
+    background-color: #0b38c0;
+    color: #0bafe8;
+}
+
+/* Pressed effect on buttons */
+QPushButton:pressed {
+    background-color: #555;
+    color: #0bafe8;
+    border-style: inset;
+}
